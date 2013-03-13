@@ -16,8 +16,9 @@ Because mocking in your unit tests is not enough, you have to check against real
 * Set up the page in which you want to run the tests.
 * At the required places, do calls to `alert()` with a specific message.
 * install `clouseau` in your project by running `npm install clouseau`
-* Build a Node.js script that uses `phantomjs_app_checkpoint` as follows:
+* Build a Node.js script that uses `clouseau` as follows:
 
+    ```javascript
     var clouseau = require('clouseau');
     
     var check1 = clouseau.addCheckpoint('MESSAGE1', 10000); // timeout in ms
