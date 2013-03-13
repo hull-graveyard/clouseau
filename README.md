@@ -35,7 +35,7 @@ Because mocking in your unit tests is not enough, you have to check against real
 
 The module exports 3 properties:
 
-* `Q`: The very excellent [Q](kriskowal/q) library
+* `Q`: The very excellent [Q](http://github.com/kriskowal/q) library
 * `addCheckpoint(msg, timeout)`: To add your own checkpoint
 * `run`: Start loading the page in PhantomJS and verifying the checkpoints
 
