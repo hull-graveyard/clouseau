@@ -24,7 +24,9 @@ Because mocking in your unit tests is not enough, you have to check against real
     var check1 = clouseau.addCheckpoint('MESSAGE1', 10000); // timeout in ms
     var check2 = clouseau.addCheckpoint('MESSAGE2', 40000);
     
-    clouseau.start()
+    var url = "http://your.domain.com/end/point"
+    
+    clouseau.start(url)
       .then(check1)
       .then(check2)
       .then(function () { console.log('OK'); }, function () { console.log('Fail'); });
