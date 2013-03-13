@@ -16,8 +16,11 @@ function onAlertCheck(expected, page) {
 }
 
 
-
-function run() {
+/**
+ * Starts the execution of clouseau.
+ * Your initial checkpoints  MUST be ste before calling this
+ */
+function run(url) {
   "use strict";
 
   /**
@@ -40,7 +43,7 @@ function run() {
   phantom.create(function (err, ph) {
     return ph.createPage(function (err, page) {
       page.open(
-        process.env.HUBOT_ALIVE_URL,
+        url,
         testCorrectDeploy.bind(page, dfd)
       );
     });
