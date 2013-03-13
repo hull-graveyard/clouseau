@@ -36,18 +36,26 @@ function run(url) {
 
 
   var dfd = Q.defer();
+  if (!url) {
+    dfd.reject("No URL to be examined was provided.");
+  }
 
   /**
    * This is where it all begins: PhantomJS creation, page creation, and initialization of the widgets
    */
   phantom.create(function (err, ph) {
+    if (err) {
+      return dfd.reject(new Error(err));
+    }
     return ph.createPage(function (err, page) {
+      if (err) {
+        return dfd.reject(new Error(err));
+      }
       page.open(
         url,
         testCorrectDeploy.bind(page, dfd)
       );
     });
-    dfd.then(ph.exit, function () {});
   });
 
   return dfd.promise;
@@ -63,6 +71,7 @@ module.exports = {
    * We must have a function that returns a new copy ofthe function everytime, because we can't rebind a bound function
    */
   addCheckpoint: function (expectation, delay) {
+    "use strict";
     return function (expected, delay, page) {
       Q.delay(delay).done(function () {
         if (!this.promise.isFulfilled()) {
