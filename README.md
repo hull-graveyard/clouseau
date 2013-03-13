@@ -1,4 +1,4 @@
-# PhantomJS Application checkpoint
+# Clouseau
 
 > Follows the execution of a page/an app by expecting messages (sent via `alert()`) by running it in PhantomJS.
 
@@ -18,12 +18,12 @@ Because mocking in your unit tests is not enough, you have to check against real
 * install `clouseau` in your project by running `npm install clouseau`
 * Build a Node.js script that uses `phantomjs_app_checkpoint` as follows:
 
-    var appCheck = require('phantomjs_app_check');
+    var clouseau = require('clouseau');
     
-    var check1 = appCheck.addCheckpoint('MESSAGE1', 10000); // timeout in ms
-    var check2 = appCheck.addCheckpoint('MESSAGE2', 40000);
+    var check1 = clouseau.addCheckpoint('MESSAGE1', 10000); // timeout in ms
+    var check2 = clouseau.addCheckpoint('MESSAGE2', 40000);
     
-    appCheck.start()
+    clouseau.start()
       .then(check1)
       .then(check2)
       .then(function () { console.log('OK'); }, function () { console.log('Fail'); });
