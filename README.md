@@ -2,7 +2,8 @@
 
 > Follows the execution of a page/an app by expecting messages (sent via `alert()`) by running it in PhantomJS.
 
-![Clouseau](hull/clouseau/clouseau.png)
+![Clouseau](clouseau.png)
+
 
 ## What is it for ?
 
