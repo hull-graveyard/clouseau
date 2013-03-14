@@ -1,6 +1,7 @@
 # Clouseau
 
-> Tracks the correct execution of any app (yours or not) by asserting invariants while running the app into PhantomJS.
+> Tracks that your app as a whole works as you expect it.
+> the expected execution of any app (yours or not) by asserting invariants while running the app into PhantomJS.
 >
 > No modification of your codebase required as long as you can identify invariants during the execution.
 
@@ -15,10 +16,16 @@ Because mocking in your unit tests is not enough, you have to check against real
 
 It can also easily be used as a monitoring tool if you have a long-running app, or want to ensure your freshly deployed app fulfills its most basic (therefore critical!) tasks.
 
+## How does it work ?
+
+Clouseau tracks invariants in a _live_ and _running_ app in phantomJS. Basically, this is integration testing, which means you should be able to find those invariants without any modification of your codebase.
+Though it might be necessary from time to time, of course...
+
+You define those invariants by defining functions, and decide how they should flow one with the other with the help of (Q)[http://github.com/kriskowal/q].
+
 ## How to use it ?
 
-* Set up the page in which you want to run the tests
-* At the required places, do calls to `alert()` with a specific message
+* Find the page/app in which you want to test the invariants
 * install `clouseau` in your project by running `npm install clouseau-js`
 * Build a Node.js script that uses `clouseau` as follows:
 
