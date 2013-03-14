@@ -1,9 +1,8 @@
 # Clouseau
 
 > Tracks that your app as a whole works as you expect it.
-> the expected execution of any app (yours or not) by asserting invariants while running the app into PhantomJS.
 >
-> No modification of your codebase required as long as you can identify invariants during the execution.
+> The piece of cake that was missingin your integration testing strategy!
 
 ![Clouseau](clouseau.png)
 
