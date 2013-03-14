@@ -5,7 +5,7 @@ var Q = require('q');
  * Starts the execution of clouseau.
  * Your initial checkpoints  MUST be ste before calling this
  */
-function run(url) {
+function start(url) {
   "use strict";
 
   /**
@@ -50,7 +50,7 @@ function run(url) {
 
 module.exports = {
   Q: Q,
-  start: run,
+  start: start,
   /**
    * Generates alert handlers at specific delays, with specific expectations and messages
    * We must have a function that returns a new copy ofthe function everytime, because we can't rebind a bound function
