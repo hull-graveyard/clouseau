@@ -21,7 +21,7 @@ It can also easily be used as a monitoring tool if you have a long-running app, 
 Clouseau tracks invariants in a _live_ and _running_ app in phantomJS. Basically, this is integration testing, which means you should be able to find those invariants without any modification of your codebase.
 Though it might be necessary from time to time, of course...
 
-You define those invariants by defining functions, and decide how they should flow one with the other with the help of (Q)[http://github.com/kriskowal/q].
+You define those invariants by defining functions, and decide how they should flow one with the other with the help of [Q](http://github.com/kriskowal/q).
 
 ## How to use it ?
 
