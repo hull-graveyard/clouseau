@@ -2,21 +2,6 @@ var phantom = require('node-phantom');
 var Q = require('q');
 
 /**
- * Generates onAlert functions so we can expect various alert messages
- */
-function onAlertCheck(expected, page) {
-  "use strict";
-  return function (txt) {
-    if (txt !== expected) {
-      return this.reject(new Error('Unexpected message: ' + txt));
-    }
-    this.resolve(page);
-    return this;
-  }.bind(this);
-}
-
-
-/**
  * Starts the execution of clouseau.
  * Your initial checkpoints  MUST be ste before calling this
  */
@@ -51,6 +36,7 @@ function run(url) {
       if (err) {
         return dfd.reject(new Error(err));
       }
+      console.info(ph, page);
       page.open(
         url,
         testCorrectDeploy.bind(page, dfd)
@@ -70,17 +56,19 @@ module.exports = {
    * Generates alert handlers at specific delays, with specific expectations and messages
    * We must have a function that returns a new copy ofthe function everytime, because we can't rebind a bound function
    */
-  addCheckpoint: function (expectation, delay) {
+  addCheckpoint: function (expectation, delay, description) {
     "use strict";
-    return function (expected, delay, page) {
+
+    description = description ? '"' + description + '"' : '';
+    return function (page) {
       Q.delay(delay).done(function () {
         if (!this.promise.isFulfilled()) {
-          this.reject(new Error('Expectation "' + expected + '" not fulfilled.'));
+          this.reject(new Error(['Expectation',  description,  'not fulfilled.'].join(' ')));
         }
       }.bind(this));
 
-      page.onAlert = onAlertCheck.call(this, expected, page);
+      expectation.call(this, page);
       return this.promise;
-    }.bind(Q.defer(), expectation, delay);
+    }.bind(Q.defer());
   }
 };
