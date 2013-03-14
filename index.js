@@ -36,7 +36,6 @@ function run(url) {
       if (err) {
         return dfd.reject(new Error(err));
       }
-      console.info(ph, page);
       page.open(
         url,
         testCorrectDeploy.bind(page, dfd)
@@ -59,7 +58,7 @@ module.exports = {
   addCheckpoint: function (expectation, delay, description) {
     "use strict";
 
-    description = description ? '"' + description + '"' : '';
+    description = description ? '"' + description + '"' : '_unnamed_';
     return function (page) {
       Q.delay(delay).done(function () {
         if (!this.promise.isFulfilled()) {
