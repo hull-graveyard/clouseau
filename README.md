@@ -2,7 +2,7 @@
 
 > Tracks that your app as a whole works as you expect it.
 >
-> The piece of cake that was missingin your integration testing strategy!
+> The piece of cake that was missing in your integration testing strategy!
 
 ![Clouseau](clouseau.png)
 
@@ -59,7 +59,7 @@ The module exports 3 properties:
 
 * `Q`: The very excellent [Q](http://github.com/kriskowal/q) library
 * `addCheckpoint(fn, timeout)`: To add your own checkpoint
-* `run`: Start loading the page in PhantomJS and verifying the checkpoints
+* `start`: Start loading the page in PhantomJS and verifying the checkpoints
 
 ## License
 
