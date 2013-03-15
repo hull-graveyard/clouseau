@@ -1,6 +1,6 @@
 {
   "name": "clouseau-js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Follows the execution of a page/an app by expecting messages (sent via `alert()`) by running it in PhantomJS.",
   "main": "index.js",
   "repository": "git://github.com/hull/clouseau.git",
