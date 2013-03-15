@@ -11,11 +11,12 @@ function start(url) {
   /**
    * Runs all the tests necesaary to check the deploy is valid
    */
-  function testCorrectDeploy(dfd, err, status) {
+  function testCorrectDeploy(dfd, ph, err, status) {
     if (status !== "success") {
       dfd.reject('Unable to open the page');
     }
     dfd.resolve(this);
+    ph.exit();
   }
 
 
@@ -38,7 +39,7 @@ function start(url) {
       }
       page.open(
         url,
-        testCorrectDeploy.bind(page, dfd)
+        testCorrectDeploy.bind(page, dfd, ph)
       );
     });
   });
