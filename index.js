@@ -30,11 +30,11 @@ function start(url) {
    */
   phantom.create(function (err, ph) {
     if (err) {
-      return dfd.reject(new Error(err));
+      return dfd.reject(new Error('Unable to create PhantomJS: ' + err));
     }
     return ph.createPage(function (err, page) {
       if (err) {
-        return dfd.reject(new Error(err));
+        return dfd.reject(new Error('Unable to create the page PhantomJS: ' + err));
       }
       page.open(
         url,
